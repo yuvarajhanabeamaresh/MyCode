@@ -1,0 +1,24 @@
+import java.util.Properties
+
+import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerConfig
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.common.serialization.StringSerializer
+
+object KafkaProducerInScala {
+  def main(args: Array[String]): Unit = {
+    //create producer object
+    //val topic = "test"
+    val bootstrapServers: String = "127.0.0.1:9092"
+    val producerProperties = new Properties()
+    producerProperties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,bootstrapServers)
+    producerProperties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")
+   producerProperties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer")
+val producer =new KafkaProducer[String,String](producerProperties)
+    //create producer record
+    val producerRecord = new ProducerRecord[String,String]("test","Hey Yuvaraj", "You are 28 year old")
+    //send data
+    producer.send(producerRecord).get()
+  }
+
+}
