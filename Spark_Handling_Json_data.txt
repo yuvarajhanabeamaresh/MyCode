@@ -1,0 +1,22 @@
+Single line json
+
+Multi Line json
+use the below command,if your json is multiline,else you will get the corrupt data
+----------------val df1= spark.read.option("multiline",true).json("F:\\yuv\\JsonSample.json")-------------
+
+
+--------------------Link to handle json nested data----------------------------
+https://docs.databricks.com/spark/latest/dataframes-datasets/complex-nested-data.html
+
+----------------refer to handle json data conatining array elements(not nested)-----------------
+https://medium.com/@newfrontcreative/working-with-apache-spark-dataframes-json-and-the-good-ol-structtype-6291bdcd44bd
+
+
+get_json_object()
+from_json()
+to_json()
+explode()
+selectExpr()
+The above functions are partv  of org.apache.spark.sql.functions package. thses are used in select statements,atleast few.
+
+To write a dataframe(having json data) to kafka,we can use to_json method  which converts dataframe to json string so that it can be sent to kafka.
