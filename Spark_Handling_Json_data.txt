@@ -19,4 +19,8 @@ explode()
 selectExpr()
 The above functions are partv  of org.apache.spark.sql.functions package. thses are used in select statements,atleast few.
 
+to handle nested data and to fetch the nested data into the dataframe columns,we use the above methods provided by spark.sql.functions package.
+----from_json() is a variant of get_json_object().from_json uses the schema(struct type is given in the above link) to fetch neted data whereas get_json_object() doesn't uses it.
+
 To write a dataframe(having json data) to kafka,we can use to_json method  which converts dataframe to json string so that it can be sent to kafka.
+
